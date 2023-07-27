@@ -1,27 +1,41 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //import css from "./FeedBack.module.css";
 
 export default class FeedBack extends Component {
-    static defaultProps = {};
+  static defaultProps = {};
 
-    static propTypes = {};
+  static propTypes = {};
 
-    render() {
+  constructor(props) {
+    super(props);
 
-        const { children } = this.props;
+    this.state = {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
+  }
 
-        return (
-            <section className="feedBackSec">
-                <h3> Section FeedBack </h3>
-                <h4>Please Leave a Feedback</h4>
-                <div>
-                    <button>Good</button>
-                    <button>Neutral</button>
-                    <button>Bad</button>
-                </div> 
-                <h4>Statistics</h4>
-                {children}
-            </section>
-        );
-    }
+  render() {
+    const { children } = this.props;
+    const { good, neutral, bad } = this.state;
+
+    return (
+      <section className="feedBackSec">
+        <h4 className="titleFeedBack">Please Leave a Feedback</h4>
+        <div>
+          <button>Good</button>
+          <button>Neutral</button>
+          <button>Bad</button>
+        </div>
+        <h4 className="titleFeedBack">Statistics</h4>
+        <ul className="statisticsList">
+          <li className="statisticsItem"> Good: {good} </li>
+          <li className="statisticsItem"> Neutral: {neutral} </li>
+          <li className="statisticsItem"> Bad: {bad} </li>
+        </ul>
+        {children}
+      </section>
+    );
+  }
 }
