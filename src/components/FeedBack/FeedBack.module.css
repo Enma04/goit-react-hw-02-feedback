@@ -1,0 +1,35 @@
+.titleFeedBack {
+    margin: 15px 0;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.btnFeedBack {
+    height: 40px;
+    width: 80px;
+    border-radius: 15px;
+    border: none;
+    padding: 0;
+}
+
+.btnFeedBack:hover {
+    cursor: pointer;
+    opacity: 70%;
+    color: rgba(0, 0, 0, 0.757);
+}
+
+.statisticsList {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.statisticsItem {
+    padding: 12px 0;
+}
