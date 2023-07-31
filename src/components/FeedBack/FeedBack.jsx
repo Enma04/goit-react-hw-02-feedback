@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import css from "./FeedBack.module.css";
+import Statistics from 'components/Statistics/Statistics';
 
 export default class FeedBack extends Component {
 //--------------------------------------
@@ -84,13 +85,7 @@ export default class FeedBack extends Component {
           <button id='bad' className={css.btnFeedBack} onClick={ this.funcAdd } >Bad</button>
         </div>
         <h4 className={css.titleFeedBack}>Statistics</h4>
-        <ul className={css.statisticsList}>
-          <li className={css.statisticsItem}> Good: {good} </li>
-          <li className={css.statisticsItem}> Neutral: {neutral} </li>
-          <li className={css.statisticsItem}> Bad: {bad} </li>
-          <li className={css.statisticsItem}> Total opinions: {total} </li>
-          <li className={css.statisticsItem}> Positive feedback: {percentage}% </li>
-        </ul>
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} percentage={percentage} />
         {children}
       </section>
     );
