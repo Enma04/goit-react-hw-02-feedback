@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import css from "./FeedBack.module.css";
 import Statistics from 'components/Statistics/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
-
+import Section from 'components/Section/Section';
 export default class FeedBack extends Component {
 //--------------------------------------
 //------------- PROPS CLASS DEFINITIONS
@@ -70,9 +70,7 @@ export default class FeedBack extends Component {
     this.countTotalFeedback = this.countTotalFeedback.bind(this);
     this.countPositiveFeedbackPercentage = this.countPositiveFeedbackPercentage.bind(this);
   }
-/*
 
-*/
 //--------------------------------------
 //------------- RENDER METOD
   render() {
@@ -80,13 +78,19 @@ export default class FeedBack extends Component {
     const { good, neutral, bad, total, percentage } = this.state;
 
     return (
-      <section className="feedBackSec">
-        <h4 className={css.titleFeedBack}>Please Leave a Feedback</h4>
-        <FeedbackOptions onLeaveFeedback={this.funcAdd} />
-        <h4 className={css.titleFeedBack}>Statistics</h4>
-        <Statistics good={good} neutral={neutral} bad={bad} total={total} percentage={percentage} />
-        {children}
-      </section>
+      <div className="feedBackSec">
+        <Section title="Please Leave a Feedback">
+          <FeedbackOptions onLeaveFeedback={this.funcAdd} />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            percentage={percentage} />
+        </Section>
+      </div>
     );
   }
 }
