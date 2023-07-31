@@ -3,10 +3,6 @@ import css from "../FeedBack/FeedBack.module.css";
 
 export default class Statistics extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { good, neutral, bad, total, percentage } = this.props;
 
