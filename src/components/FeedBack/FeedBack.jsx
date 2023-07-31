@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Statistics from 'components/Statistics/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
@@ -14,7 +15,10 @@ export default class FeedBack extends Component {
     initialValue: 0,
   };
 
-  static propTypes = {};
+  static propTypes = {
+    step: PropTypes.number,
+    initialValue: PropTypes.number,
+  };
 
   //--------------------------------------
   //------------- CLASS FUNCTIONS
