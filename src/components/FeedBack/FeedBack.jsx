@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import css from "./FeedBack.module.css";
 import Statistics from 'components/Statistics/Statistics';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
 export default class FeedBack extends Component {
 //--------------------------------------
@@ -69,7 +70,9 @@ export default class FeedBack extends Component {
     this.countTotalFeedback = this.countTotalFeedback.bind(this);
     this.countPositiveFeedbackPercentage = this.countPositiveFeedbackPercentage.bind(this);
   }
+/*
 
+*/
 //--------------------------------------
 //------------- RENDER METOD
   render() {
@@ -79,11 +82,7 @@ export default class FeedBack extends Component {
     return (
       <section className="feedBackSec">
         <h4 className={css.titleFeedBack}>Please Leave a Feedback</h4>
-        <div className={css.buttonGroup} >
-          <button id='good' className={css.btnFeedBack} onClick={ this.funcAdd } >Good</button>
-          <button id='neutral' className={css.btnFeedBack} onClick={ this.funcAdd } >Neutral</button>
-          <button id='bad' className={css.btnFeedBack} onClick={ this.funcAdd } >Bad</button>
-        </div>
+        <FeedbackOptions onLeaveFeedback={this.funcAdd} />
         <h4 className={css.titleFeedBack}>Statistics</h4>
         <Statistics good={good} neutral={neutral} bad={bad} total={total} percentage={percentage} />
         {children}
