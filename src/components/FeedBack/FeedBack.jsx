@@ -23,17 +23,12 @@ export default class FeedBack extends Component {
   //--------------------------------------
   //------------- CLASS FUNCTIONS
   funcAdd(event) {
-    const { step } = this.props;
-    const { good, neutral, bad } = this.state;
     const type = event.target.id;
+    const { step } = this.props;
 
-    if (type === 'good') {
-      this.setState({ good: good + step });
-    } else if (type === 'neutral') {
-      this.setState({ neutral: neutral + step });
-    } else if (type === 'bad') {
-      this.setState({ bad: bad + step });
-    }
+    this.setState( prevState => ({
+      [type]: prevState[type] + step,
+    }));
 
     this.countTotalFeedback();
     this.countPositiveFeedbackPercentage();
@@ -49,7 +44,6 @@ export default class FeedBack extends Component {
 
   countPositiveFeedbackPercentage() {
     this.setState(prev => {
-      //console.log("preview: ", prev);
       const { good, total } = prev;
       return { percentage: Math.round((good / total) * 100) };
     });
