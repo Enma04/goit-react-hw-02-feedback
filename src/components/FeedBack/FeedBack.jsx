@@ -36,7 +36,6 @@ export default class FeedBack extends Component {
 
   countTotalFeedback() {
     this.setState(prev => {
-      //console.log("preview: ", prev);
       const { good, neutral, bad } = prev;
       return { total: good + neutral + bad };
     });
